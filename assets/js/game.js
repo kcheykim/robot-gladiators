@@ -10,10 +10,13 @@ var playerMoney = 10;
 console.log(playerName, playerAttack, playerHealth);
 
 //declaring the enemy values
-var enemyName = "Roborto";
+//var enemyName = "Roborto";
+
+//declaring an array of enemies
+var enemyNames = ["Roborto", "Amy Andriod", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
-console.log(enemyName, enemyAttack, enemyHealth);
+console.log(enemyNames, enemyAttack, enemyHealth);
 
 var fight = function() {
 
@@ -25,20 +28,20 @@ var fight = function() {
         // remove enemy's health by subtracting the amount set in the playerAttack variable
         enemyHealth = enemyHealth - playerAttack;
         console.log(
-            playerName + " attacked " + enemyName + ". " + 
-            enemyName + " now has " + enemyHealth + " health remaining.");
+            playerName + " attacked " + enemyNames[i] + ". " + 
+            enemyNames[i] + " now has " + enemyHealth + " health remaining.");
         
         //condition for enemy's health
         if(enemyHealth <= 0) {
-            window.alert(enemyName + " has died!");
+            window.alert(enemyNames[i] + " has died!");
         }
         else {
-            window.alert(enemyName + " stil has " + enemyHealth + " health left.");
+            window.alert(enemyNames[i] + " stil has " + enemyHealth + " health left.");
         }
 
         playerHealth = playerHealth - enemyAttack;
         console.log(
-        enemyName + " attacked " + playerName + ". " + playerName + " now has " 
+        enemyNames[i] + " attacked " + playerName + ". " + playerName + " now has " 
         + playerHealth + " health remaining.");
         
         //condition for player's health
@@ -67,9 +70,13 @@ var fight = function() {
     }
 };
 
+for(var i = 0; i < enemyNames.length; i++) {
+    fight(enemyNames[i]);
+}
+
 /*FUNCTION EXPRESSION*/
 
-fight();
+//fight();
 
 /*FUNCTION DECL
 function fight() {
